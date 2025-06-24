@@ -1,7 +1,7 @@
-
 import { motion } from "framer-motion";
 import { FiCamera, FiMapPin, FiEdit3 } from "react-icons/fi";
 import { GraduationCap } from "lucide-react";
+import { Avatar, AvatarImage, AvatarFallback } from "../components/ui/avatar";
 
 const About = () => {
   const educationData = [
@@ -49,12 +49,54 @@ const About = () => {
           About Me
         </motion.h1>
 
+        {/* Photo Gallery Section */}
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="mb-12"
+        >
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <motion.div
+              initial={{ x: -50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="relative group"
+            >
+              <img 
+                src="/lovable-uploads/ce69e83a-c2da-4b77-ba56-dce21a85463a.png"
+                alt="Kare Shirdi Sainath at waterfall"
+                className="w-full h-80 object-cover rounded-2xl shadow-2xl border border-white/10 group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <p className="text-white font-medium">Exploring nature's beauty</p>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ x: 50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="relative group"
+            >
+              <img 
+                src="/lovable-uploads/f039f641-5e77-417f-9f1b-559de410d857.png"
+                alt="Kare Shirdi Sainath traveling"
+                className="w-full h-80 object-cover rounded-2xl shadow-2xl border border-white/10 group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <p className="text-white font-medium">Passionate about traveling</p>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Personal Info */}
           <motion.div
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
             className="space-y-6"
           >
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
@@ -75,7 +117,7 @@ const About = () => {
                     key={hobby.name}
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
+                    transition={{ delay: 0.8 + index * 0.1, duration: 0.5 }}
                     className="flex items-center space-x-2 bg-white/5 rounded-lg p-3"
                   >
                     <hobby.icon className="text-blue-400" />
@@ -90,7 +132,7 @@ const About = () => {
           <motion.div
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
             className="space-y-6"
           >
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">

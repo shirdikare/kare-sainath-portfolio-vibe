@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FiArrowRight, FiMapPin } from "react-icons/fi";
-import AnimatedIcon from "../components/AnimatedIcon";
+import { Avatar, AvatarImage, AvatarFallback } from "../components/ui/avatar";
 
 const Home = () => {
   return (
@@ -18,9 +18,18 @@ const Home = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="mb-8"
+          className="mb-8 flex justify-center"
         >
-          <AnimatedIcon />
+          <Avatar className="w-32 h-32 md:w-40 md:h-40 border-4 border-blue-400/50 shadow-2xl">
+            <AvatarImage 
+              src="/lovable-uploads/f039f641-5e77-417f-9f1b-559de410d857.png" 
+              alt="Kare Shirdi Sainath"
+              className="object-cover"
+            />
+            <AvatarFallback className="text-2xl bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+              KS
+            </AvatarFallback>
+          </Avatar>
         </motion.div>
 
         <motion.h1
