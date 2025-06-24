@@ -1,6 +1,7 @@
 
 import { motion } from "framer-motion";
-import { FiCamera, FiMapPin, FiEdit3, FiGraduationCap } from "react-icons/fi";
+import { FiCamera, FiMapPin, FiEdit3 } from "react-icons/fi";
+import { GraduationCap } from "lucide-react";
 
 const About = () => {
   const educationData = [
@@ -94,7 +95,7 @@ const About = () => {
           >
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
               <h2 className="text-2xl font-semibold mb-6 text-blue-400 flex items-center">
-                <FiGraduationCap className="mr-3" />
+                <GraduationCap className="mr-3" />
                 Education
               </h2>
               
