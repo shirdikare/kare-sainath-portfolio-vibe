@@ -20,7 +20,9 @@ const Projects = () => {
       technologies: ["Python", "TensorFlow", "IoT", "React", "Node.js"],
       duration: "3 months",
       type: "Team Project",
-      image: "/api/placeholder/600/400"
+      image: "/api/placeholder/600/400",
+      logo: "🏠",
+      gradient: "from-orange-400 via-red-500 to-pink-500"
     },
     {
       id: 2,
@@ -34,7 +36,9 @@ const Projects = () => {
       ],
       technologies: ["Python", "Scikit-learn", "Flask", "Elasticsearch", "React"],
       certificate: true,
-      image: "/api/placeholder/600/400"
+      image: "/api/placeholder/600/400",
+      logo: "🔍",
+      gradient: "from-blue-400 via-purple-500 to-indigo-600"
     }
   ];
 
@@ -51,9 +55,23 @@ const Projects = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+          className="text-5xl md:text-7xl font-extrabold text-center mb-16 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+          style={{
+            textShadow: "0 0 30px rgba(59, 130, 246, 0.3)",
+          }}
         >
-          Projects
+          <motion.span
+            animate={{ 
+              textShadow: [
+                "0 0 30px rgba(59, 130, 246, 0.3)",
+                "0 0 50px rgba(147, 51, 234, 0.4)",
+                "0 0 30px rgba(59, 130, 246, 0.3)"
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          >
+            Projects
+          </motion.span>
         </motion.h1>
 
         <div className="grid lg:grid-cols-2 gap-8">
@@ -64,21 +82,70 @@ const Projects = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.4 + index * 0.2, duration: 0.8 }}
               className="group"
+              whileHover={{ y: -10 }}
             >
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden hover:border-blue-500/30 transition-all duration-300 transform hover:scale-105">
-                <div className="h-48 bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
-                  <div className="text-6xl opacity-50">
-                    {project.id === 1 ? "🏠" : "🔍"}
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden hover:border-blue-500/30 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
+                <div className={`h-56 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}>
+                  <motion.div 
+                    className="text-8xl drop-shadow-2xl relative z-10"
+                    animate={{ 
+                      scale: [1, 1.1, 1],
+                      rotate: [0, 5, -5, 0]
+                    }}
+                    transition={{ 
+                      duration: 4, 
+                      repeat: Infinity, 
+                      ease: "easeInOut" 
+                    }}
+                    whileHover={{ 
+                      scale: 1.2,
+                      rotate: 360,
+                      transition: { duration: 0.5 }
+                    }}
+                  >
+                    {project.logo}
+                  </motion.div>
+                  
+                  {/* Animated background particles */}
+                  <div className="absolute inset-0">
+                    {[...Array(6)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute w-2 h-2 bg-white/30 rounded-full"
+                        animate={{
+                          x: [0, 100, 0],
+                          y: [0, 50, 0],
+                          opacity: [0, 1, 0]
+                        }}
+                        transition={{
+                          duration: 3 + i,
+                          repeat: Infinity,
+                          delay: i * 0.5
+                        }}
+                        style={{
+                          left: `${10 + i * 15}%`,
+                          top: `${20 + i * 10}%`
+                        }}
+                      />
+                    ))}
                   </div>
                 </div>
                 
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-4">
-                    <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors">
+                    <motion.h3 
+                      className="text-xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-300"
+                      whileHover={{ scale: 1.05 }}
+                    >
                       {project.title}
-                    </h3>
+                    </motion.h3>
                     {project.certificate && (
-                      <FiAward className="text-yellow-400 ml-2" size={20} />
+                      <motion.div
+                        animate={{ rotate: [0, 10, -10, 0] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        <FiAward className="text-yellow-400 ml-2" size={24} />
+                      </motion.div>
                     )}
                   </div>
                   
@@ -90,10 +157,20 @@ const Projects = () => {
                     <h4 className="text-sm font-medium text-blue-400 mb-2">Key Features:</h4>
                     <ul className="text-xs text-gray-400 space-y-1">
                       {project.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center">
-                          <span className="w-1 h-1 bg-blue-400 rounded-full mr-2"></span>
+                        <motion.li 
+                          key={idx} 
+                          className="flex items-center"
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.8 + idx * 0.1 }}
+                        >
+                          <motion.span 
+                            className="w-1 h-1 bg-blue-400 rounded-full mr-2"
+                            animate={{ scale: [1, 1.5, 1] }}
+                            transition={{ duration: 2, repeat: Infinity, delay: idx * 0.2 }}
+                          />
                           {feature}
-                        </li>
+                        </motion.li>
                       ))}
                     </ul>
                   </div>
@@ -101,12 +178,16 @@ const Projects = () => {
                   <div className="mb-4">
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, idx) => (
-                        <span
+                        <motion.span
                           key={idx}
-                          className="px-2 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full border border-blue-500/30"
+                          className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 text-xs rounded-full border border-blue-500/30 backdrop-blur-sm"
+                          whileHover={{ scale: 1.1, y: -2 }}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 1 + idx * 0.1 }}
                         >
                           {tech}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
                   </div>
@@ -118,12 +199,20 @@ const Projects = () => {
                     </div>
                     
                     <div className="flex space-x-2">
-                      <button className="p-2 bg-blue-500/20 text-blue-400 rounded-lg hover:bg-blue-500/30 transition-colors">
+                      <motion.button 
+                        className="p-2 bg-blue-500/20 text-blue-400 rounded-lg hover:bg-blue-500/30 transition-colors backdrop-blur-sm border border-blue-500/30"
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
                         <FiGithub size={16} />
-                      </button>
-                      <button className="p-2 bg-purple-500/20 text-purple-400 rounded-lg hover:bg-purple-500/30 transition-colors">
+                      </motion.button>
+                      <motion.button 
+                        className="p-2 bg-purple-500/20 text-purple-400 rounded-lg hover:bg-purple-500/30 transition-colors backdrop-blur-sm border border-purple-500/30"
+                        whileHover={{ scale: 1.1, rotate: -5 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
                         <FiExternalLink size={16} />
-                      </button>
+                      </motion.button>
                     </div>
                   </div>
                 </div>
@@ -138,10 +227,33 @@ const Projects = () => {
           transition={{ delay: 1, duration: 0.8 }}
           className="text-center mt-12"
         >
-          <p className="text-gray-300 mb-4">More exciting projects coming soon!</p>
+          <motion.p 
+            className="text-gray-300 mb-4 text-lg font-medium"
+            animate={{ opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            More exciting projects coming soon!
+          </motion.p>
           <div className="inline-flex items-center space-x-2 text-blue-400">
-            <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
-            <span className="text-sm">Currently working on new innovations</span>
+            <motion.span 
+              className="w-3 h-3 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"
+              animate={{ 
+                scale: [1, 1.5, 1],
+                boxShadow: [
+                  "0 0 0 0 rgba(59, 130, 246, 0.7)",
+                  "0 0 0 10px rgba(59, 130, 246, 0)",
+                  "0 0 0 0 rgba(59, 130, 246, 0)"
+                ]
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+            <motion.span 
+              className="text-sm font-medium bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+              animate={{ opacity: [0.8, 1, 0.8] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              Currently working on new innovations
+            </motion.span>
           </div>
         </motion.div>
       </div>
