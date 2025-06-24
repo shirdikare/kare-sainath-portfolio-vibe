@@ -65,11 +65,12 @@ const About = () => {
             >
               <img 
                 src="/lovable-uploads/ce69e83a-c2da-4b77-ba56-dce21a85463a.png"
-                alt="Kare Shirdi Sainath at waterfall"
-                className="w-full h-80 object-cover rounded-2xl shadow-2xl border border-white/10 group-hover:scale-105 transition-transform duration-300"
+                alt="Kare Shirdi Sainath in purple shirt"
+                className="w-full h-80 object-cover object-top rounded-2xl shadow-2xl border border-white/10 group-hover:scale-105 transition-transform duration-300"
+                style={{ objectPosition: 'center 20%' }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <p className="text-white font-medium">Exploring nature's beauty</p>
+                <p className="text-white font-medium">Professional profile</p>
               </div>
             </motion.div>
             
@@ -81,11 +82,12 @@ const About = () => {
             >
               <img 
                 src="/lovable-uploads/f039f641-5e77-417f-9f1b-559de410d857.png"
-                alt="Kare Shirdi Sainath traveling"
-                className="w-full h-80 object-cover rounded-2xl shadow-2xl border border-white/10 group-hover:scale-105 transition-transform duration-300"
+                alt="Kare Shirdi Sainath in maroon shirt"
+                className="w-full h-80 object-cover object-top rounded-2xl shadow-2xl border border-white/10 group-hover:scale-105 transition-transform duration-300"
+                style={{ objectPosition: 'center 15%' }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <p className="text-white font-medium">Passionate about traveling</p>
+                <p className="text-white font-medium">Casual portrait</p>
               </div>
             </motion.div>
           </div>
