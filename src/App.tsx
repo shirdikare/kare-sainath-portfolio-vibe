@@ -10,6 +10,7 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
+import Gallery from "./pages/Gallery";
 import NotFound from "./pages/NotFound";
 import Navigation from "./components/Navigation";
 import ParticleBackground from "./components/ParticleBackground";
@@ -27,6 +28,7 @@ const AnimatedRoutes = () => {
         <Route path="/projects" element={<Projects />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
@@ -39,8 +41,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/5 via-purple-500/5 to-pink-500/5"></div>
+        <div className="min-h-screen bg-gradient-to-br from-black via-red-900 to-black text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-tr from-red-500/10 via-black/20 to-red-800/15"></div>
           <ParticleBackground />
           <Navigation />
           <AnimatedRoutes />

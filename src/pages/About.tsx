@@ -1,7 +1,7 @@
+
 import { motion } from "framer-motion";
 import { FiCamera, FiMapPin, FiEdit3 } from "react-icons/fi";
 import { GraduationCap } from "lucide-react";
-import { Avatar, AvatarImage, AvatarFallback } from "../components/ui/avatar";
 
 const About = () => {
   const educationData = [
@@ -44,72 +44,28 @@ const About = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+          className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent"
         >
           About Me
         </motion.h1>
-
-        {/* Photo Gallery Section */}
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="mb-12"
-        >
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <motion.div
-              initial={{ x: -50, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="relative group"
-            >
-              <img 
-                src="/lovable-uploads/ce69e83a-c2da-4b77-ba56-dce21a85463a.png"
-                alt="Kare Shirdi Sainath in purple shirt"
-                className="w-full h-80 object-cover object-top rounded-2xl shadow-2xl border border-white/10 group-hover:scale-105 transition-transform duration-300"
-                style={{ objectPosition: 'center 20%' }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <p className="text-white font-medium">Professional profile</p>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ x: 50, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="relative group"
-            >
-              <img 
-                src="/lovable-uploads/f039f641-5e77-417f-9f1b-559de410d857.png"
-                alt="Kare Shirdi Sainath in maroon shirt"
-                className="w-full h-80 object-cover object-top rounded-2xl shadow-2xl border border-white/10 group-hover:scale-105 transition-transform duration-300"
-                style={{ objectPosition: 'center 15%' }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <p className="text-white font-medium">Casual portrait</p>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Personal Info */}
           <motion.div
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
             className="space-y-6"
           >
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-400">Personal Introduction</h2>
+            <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 border border-red-500/20">
+              <h2 className="text-2xl font-semibold mb-4 text-red-400">Personal Introduction</h2>
               <p className="text-gray-300 leading-relaxed mb-6">
                 Hi! I'm Kare Shirdi Sainath, a passionate MERN Full Stack Developer currently pursuing 
                 B.Tech in Computer Science Engineering with specialization in Artificial Intelligence. 
                 I love creating innovative web solutions that make a difference.
               </p>
               
-              <h3 className="text-xl font-semibold mb-4 text-purple-400 flex items-center">
+              <h3 className="text-xl font-semibold mb-4 text-red-300 flex items-center">
                 <span className="mr-2">🎯</span>
                 Hobbies & Interests
               </h3>
@@ -119,10 +75,10 @@ const About = () => {
                     key={hobby.name}
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.8 + index * 0.1, duration: 0.5 }}
-                    className="flex items-center space-x-2 bg-white/5 rounded-lg p-3"
+                    transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
+                    className="flex items-center space-x-2 bg-red-900/20 rounded-lg p-3 border border-red-500/20"
                   >
-                    <hobby.icon className="text-blue-400" />
+                    <hobby.icon className="text-red-400" />
                     <span className="text-sm">{hobby.name}</span>
                   </motion.div>
                 ))}
@@ -134,11 +90,11 @@ const About = () => {
           <motion.div
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
             className="space-y-6"
           >
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-              <h2 className="text-2xl font-semibold mb-6 text-blue-400 flex items-center">
+            <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 border border-red-500/20">
+              <h2 className="text-2xl font-semibold mb-6 text-red-400 flex items-center">
                 <GraduationCap className="mr-3" />
                 Education
               </h2>
@@ -149,8 +105,8 @@ const About = () => {
                     key={index}
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.8 + index * 0.2, duration: 0.6 }}
-                    className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl p-6 border border-white/5"
+                    transition={{ delay: 0.6 + index * 0.2, duration: 0.6 }}
+                    className="bg-gradient-to-r from-red-500/10 to-black/20 rounded-xl p-6 border border-red-500/20"
                   >
                     <div className="flex items-start space-x-4">
                       <span className="text-2xl">{edu.icon}</span>
@@ -158,7 +114,7 @@ const About = () => {
                         <h3 className="text-lg font-semibold text-white mb-1">
                           {edu.degree}
                         </h3>
-                        <p className="text-blue-400 mb-1">{edu.institution}</p>
+                        <p className="text-red-400 mb-1">{edu.institution}</p>
                         <p className="text-sm text-gray-400">{edu.period}</p>
                       </div>
                     </div>
@@ -173,11 +129,11 @@ const About = () => {
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1, duration: 0.8 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
           className="mt-12"
         >
-          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-            <h2 className="text-2xl font-semibold mb-6 text-center text-blue-400">
+          <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 border border-red-500/20">
+            <h2 className="text-2xl font-semibold mb-6 text-center text-red-400">
               Technical Skills
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -186,8 +142,8 @@ const About = () => {
                   key={skill}
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  transition={{ delay: 1.2 + index * 0.1, duration: 0.3 }}
-                  className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg p-3 text-center border border-white/10"
+                  transition={{ delay: 1 + index * 0.1, duration: 0.3 }}
+                  className="bg-gradient-to-r from-red-500/20 to-black/20 rounded-lg p-3 text-center border border-red-500/20"
                 >
                   <span className="text-sm font-medium">{skill}</span>
                 </motion.div>
