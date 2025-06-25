@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { FiMail, FiGithub, FiLinkedin, FiInstagram, FiSend } from "react-icons/fi";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +11,7 @@ const Contact = () => {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
+  const { toast } = useToast();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -23,14 +24,37 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Success!",
+          description: "Your message has been sent successfully.",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-      setShowSuccess(true);
-      setFormData({ name: "", email: "", message: "" });
-      
-      setTimeout(() => setShowSuccess(false), 5000);
-    }, 1000);
+    }
   };
 
   const socialLinks = [
@@ -54,7 +78,7 @@ const Contact = () => {
     },
     {
       name: "Email",
-      url: "mailto:kareshirdisainth624@gmail.com",
+      url: "mailto:kareshirdisainath624@gmail.com",
       icon: FiMail,
       color: "hover:text-green-400"
     }
@@ -88,16 +112,6 @@ const Contact = () => {
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
               <h2 className="text-2xl font-semibold mb-6 text-blue-400">Send a Message</h2>
               
-              {showSuccess && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-400"
-                >
-                  ✅ Success! Your message has been sent.
-                </motion.div>
-              )}
-
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
@@ -179,7 +193,7 @@ const Contact = () => {
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <FiMail className="text-blue-400" />
-                  <span className="text-gray-300">kareshir***@gmail.com</span>
+                  <span className="text-gray-300">kareshirdisainath624@gmail.com</span>
                 </div>
                 
                 <div className="flex items-center space-x-3">
