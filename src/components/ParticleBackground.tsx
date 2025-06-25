@@ -34,7 +34,7 @@ const ParticleBackground = () => {
             },
             onHover: {
               enable: true,
-              mode: "repulse",
+              mode: "attract",
             },
             resize: true,
           },
@@ -42,21 +42,22 @@ const ParticleBackground = () => {
             push: {
               quantity: 4,
             },
-            repulse: {
-              distance: 200,
+            attract: {
+              distance: 150,
               duration: 0.4,
+              factor: 3,
             },
           },
         },
         particles: {
           color: {
-            value: "#ffffff",
+            value: ["#00f5ff", "#8b5cf6", "#f59e0b", "#10b981"],
           },
           links: {
             color: "#ffffff",
             distance: 150,
             enable: true,
-            opacity: 0.3,
+            opacity: 0.2,
             width: 1,
           },
           move: {
@@ -65,8 +66,8 @@ const ParticleBackground = () => {
             outModes: {
               default: "bounce",
             },
-            random: false,
-            speed: 2,
+            random: true,
+            speed: 1.5,
             straight: false,
           },
           number: {
@@ -74,16 +75,26 @@ const ParticleBackground = () => {
               enable: true,
               area: 800,
             },
-            value: 80,
+            value: 60,
           },
           opacity: {
-            value: 0.5,
+            value: { min: 0.3, max: 0.8 },
+            animation: {
+              enable: true,
+              speed: 1,
+              minimumValue: 0.1,
+            },
           },
           shape: {
-            type: "circle",
+            type: ["circle", "triangle", "polygon"],
           },
           size: {
-            value: { min: 1, max: 5 },
+            value: { min: 1, max: 4 },
+            animation: {
+              enable: true,
+              speed: 2,
+              minimumValue: 0.5,
+            },
           },
         },
         detectRetina: true,
