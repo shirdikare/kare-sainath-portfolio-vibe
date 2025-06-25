@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { FiMail, FiGithub, FiLinkedin, FiInstagram, FiSend } from "react-icons/fi";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -25,31 +26,31 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
-      });
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_name: 'Shirdi Kare', // Your name
+      };
 
-      if (response.ok) {
-        toast({
-          title: "Success!",
-          description: "Your message has been sent successfully.",
-        });
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        throw new Error('Form submission failed');
-      }
+      await emailjs.send(
+        'service_5nt4wis', // Your service ID
+        'template_zinv1tq', // Your template ID
+        templateParams,
+        'kPWL4RgI8jOG6_jQ3' // Your public key
+      );
+
+      toast({
+        title: "Success!",
+        description: "Your message has been sent successfully. I'll get back to you soon!",
+      });
+      setFormData({ name: "", email: "", message: "" });
+      
     } catch (error) {
+      console.error('EmailJS Error:', error);
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again.",
+        description: "Failed to send message. Please try again or contact me directly.",
         variant: "destructive",
       });
     } finally {
