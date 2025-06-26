@@ -197,7 +197,7 @@ const Home = () => {
                   <div className="text-sm text-gray-400">{stat.label}</div>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
 
           {/* Right side - Profile Image */}
@@ -215,9 +215,9 @@ const Home = () => {
               <div className="w-80 h-80 md:w-96 md:h-96">
                 <Avatar className="w-full h-full border-4 border-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 shadow-2xl shadow-cyan-500/25">
                   <AvatarImage 
-                    src="/lovable-uploads/163f1487-5c33-4c50-89c3-9a1ee53e791f.png" 
+                    src="/lovable-uploads/df354ef8-b008-4861-93e3-c75dd5c8d101.png" 
                     alt="Kare Shirdi Sainath"
-                    className="object-cover"
+                    className="object-cover aspect-square"
                   />
                   <AvatarFallback className="text-4xl bg-gradient-to-r from-cyan-500 to-purple-600 text-white">
                     KS
