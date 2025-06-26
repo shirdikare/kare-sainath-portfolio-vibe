@@ -1,7 +1,8 @@
 
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FiArrowRight, FiMapPin, FiCode, FiGitBranch, FiZap, FiSword, FiShield, FiTarget } from "react-icons/fi";
+import { FiArrowRight, FiMapPin, FiCode, FiGitBranch, FiZap } from "react-icons/fi";
+import { Sword, Shield, Target, Zap } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "../components/ui/avatar";
 import { useState, useEffect } from "react";
 
@@ -35,9 +36,9 @@ const Home = () => {
   }, [currentIndex]);
 
   const floatingIcons = [
-    { icon: FiSword, color: "text-purple-400", delay: 0 },
-    { icon: FiShield, color: "text-blue-400", delay: 0.5 },
-    { icon: FiTarget, color: "text-red-400", delay: 1 },
+    { icon: Sword, color: "text-purple-400", delay: 0 },
+    { icon: Shield, color: "text-blue-400", delay: 0.5 },
+    { icon: Target, color: "text-red-400", delay: 1 },
     { icon: FiCode, color: "text-cyan-400", delay: 1.5 }
   ];
 
@@ -185,7 +186,7 @@ const Home = () => {
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                   >
-                    <FiSword className="ml-2" />
+                    <Sword className="ml-2" size={20} />
                   </motion.div>
                 </Link>
               </motion.div>
@@ -212,8 +213,8 @@ const Home = () => {
             >
               {[
                 { number: "∞", label: "Power Level", color: "from-purple-400 to-blue-500", icon: FiZap },
-                { number: "S+", label: "Rank", color: "from-blue-400 to-cyan-500", icon: FiShield },
-                { number: "Elite", label: "Class", color: "from-cyan-400 to-purple-500", icon: FiSword }
+                { number: "S+", label: "Rank", color: "from-blue-400 to-cyan-500", icon: Shield },
+                { number: "Elite", label: "Class", color: "from-cyan-400 to-purple-500", icon: Sword }
               ].map((stat, index) => {
                 const IconComponent = stat.icon;
                 return (
@@ -227,7 +228,7 @@ const Home = () => {
                       animate={{ rotate: [0, 360] }}
                       transition={{ duration: 4, repeat: Infinity, delay: index * 0.3 }}
                     >
-                      <IconComponent className={`text-xl bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`} />
+                      <IconComponent className={`text-xl bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`} size={20} />
                     </motion.div>
                     <motion.div
                       className={`text-2xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}
