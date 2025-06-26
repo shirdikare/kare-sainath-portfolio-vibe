@@ -10,10 +10,10 @@ const Home = () => {
   const [typedText, setTypedText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const roles = [
-    "Shadow Developer",
-    "Code Monarch",
+    "Full Stack Developer",
+    "Software Engineer",
     "System Architect",
-    "Digital Hunter"
+    "Tech Specialist"
   ];
 
   useEffect(() => {
@@ -36,10 +36,10 @@ const Home = () => {
   }, [currentIndex]);
 
   const floatingIcons = [
-    { icon: Sword, color: "text-purple-400", delay: 0 },
-    { icon: Shield, color: "text-blue-400", delay: 0.5 },
-    { icon: Target, color: "text-red-400", delay: 1 },
-    { icon: FiCode, color: "text-cyan-400", delay: 1.5 }
+    { icon: Sword, color: "text-purple-300", delay: 0 },
+    { icon: Shield, color: "text-blue-300", delay: 0.5 },
+    { icon: Target, color: "text-red-300", delay: 1 },
+    { icon: FiCode, color: "text-cyan-300", delay: 1.5 }
   ];
 
   return (
@@ -50,57 +50,79 @@ const Home = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen flex items-center justify-center relative z-10 pt-20"
     >
-      {/* Mystical Background Effects */}
+      {/* Enhanced Dark Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Shadow Particles */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-purple-900/20 to-black/80"></div>
+        {/* Deep Shadow Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-95"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/30 via-black/80 to-blue-900/30"></div>
         
-        {/* Floating Magic Icons */}
+        {/* Floating Technical Icons */}
         {floatingIcons.map((item, index) => {
           const IconComponent = item.icon;
           return (
             <motion.div
               key={index}
-              className={`absolute ${item.color} opacity-20`}
+              className={`absolute ${item.color} opacity-15`}
               animate={{
-                y: [0, -30, 0],
-                x: [0, 15, 0],
+                y: [0, -40, 0],
+                x: [0, 20, 0],
                 rotate: [0, 360],
-                scale: [1, 1.2, 1]
+                scale: [1, 1.3, 1]
               }}
               transition={{
-                duration: 10,
+                duration: 12,
                 repeat: Infinity,
                 delay: item.delay
               }}
               style={{
-                left: `${10 + index * 25}%`,
-                top: `${20 + index * 15}%`
+                left: `${8 + index * 22}%`,
+                top: `${15 + index * 18}%`
               }}
             >
-              <IconComponent size={80} />
+              <IconComponent size={100} />
             </motion.div>
           );
         })}
 
-        {/* Mystical Orbs */}
-        {[...Array(6)].map((_, i) => (
+        {/* Enhanced Energy Orbs */}
+        {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-purple-500/60 rounded-full"
+            className="absolute w-3 h-3 bg-purple-400/40 rounded-full shadow-lg shadow-purple-400/20"
             animate={{
-              y: [0, -100, 0],
-              opacity: [0, 1, 0],
-              scale: [0, 1, 0]
+              y: [0, -120, 0],
+              opacity: [0, 0.8, 0],
+              scale: [0, 1.5, 0]
             }}
             transition={{
-              duration: 4,
+              duration: 5,
               repeat: Infinity,
-              delay: i * 0.8
+              delay: i * 1
             }}
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`
+            }}
+          />
+        ))}
+
+        {/* Vertical Energy Streaks */}
+        {[...Array(4)].map((_, i) => (
+          <motion.div
+            key={`streak-${i}`}
+            className="absolute w-px h-32 bg-gradient-to-b from-transparent via-purple-400/30 to-transparent"
+            animate={{
+              y: ['-100%', '200%'],
+              opacity: [0, 0.6, 0]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              delay: i * 0.8
+            }}
+            style={{
+              left: `${20 + i * 25}%`,
+              top: 0
             }}
           />
         ))}
@@ -114,13 +136,13 @@ const Home = () => {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent relative"
+              className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 bg-clip-text text-transparent relative drop-shadow-2xl"
             >
               Kare Shirdi Sainath
               <motion.div
-                className="absolute -top-2 -right-2 w-8 h-8 bg-purple-500/30 rounded-full blur-xl"
-                animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.8, 0.3] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute -top-3 -right-3 w-10 h-10 bg-purple-400/20 rounded-full blur-xl"
+                animate={{ scale: [1, 1.8, 1], opacity: [0.2, 0.6, 0.2] }}
+                transition={{ duration: 3, repeat: Infinity }}
               />
             </motion.h1>
 
@@ -128,29 +150,29 @@ const Home = () => {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="flex items-center mb-4 text-lg text-gray-300"
+              className="flex items-center mb-4 text-lg text-gray-200"
             >
               <motion.div
-                animate={{ scale: [1, 1.3, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                animate={{ scale: [1, 1.4, 1] }}
+                transition={{ duration: 2.5, repeat: Infinity }}
               >
-                <FiMapPin className="mr-2 text-purple-400" />
+                <FiMapPin className="mr-2 text-purple-300" />
               </motion.div>
-              <span>Shadow Realm • Sileru, Visakhapatnam</span>
+              <span>Based in Sileru, Visakhapatnam</span>
             </motion.div>
 
             <motion.div
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-2xl md:text-3xl font-medium mb-8 text-gray-200 h-12 flex items-center"
+              className="text-2xl md:text-3xl font-medium mb-8 text-gray-100 h-12 flex items-center"
             >
-              <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent font-bold">
+              <span className="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 bg-clip-text text-transparent font-bold drop-shadow-lg">
                 {typedText}
                 <motion.span
                   animate={{ opacity: [1, 0] }}
                   transition={{ duration: 0.8, repeat: Infinity }}
-                  className="text-purple-400"
+                  className="text-purple-300"
                 >
                   |
                 </motion.span>
@@ -161,10 +183,11 @@ const Home = () => {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.8 }}
-              className="text-lg md:text-xl text-gray-300 mb-12 leading-relaxed"
+              className="text-lg md:text-xl text-gray-200 mb-12 leading-relaxed drop-shadow-sm"
             >
-              Rising from the shadows to dominate the digital realm. Every line of code is a weapon, 
-              every project a conquest. Currently leveling up my powers in B.Tech CSE-AI.
+              Crafting exceptional digital experiences through innovative technology solutions. 
+              Specializing in modern web development with expertise in cutting-edge frameworks and AI integration.
+              Currently pursuing B.Tech in Computer Science with AI specialization.
             </motion.p>
 
             <motion.div
@@ -179,9 +202,9 @@ const Home = () => {
               >
                 <Link
                   to="/projects"
-                  className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 text-white font-semibold rounded-full hover:from-purple-700 hover:via-blue-700 hover:to-cyan-700 transition-all duration-300 shadow-lg shadow-purple-500/25 border border-purple-400/30"
+                  className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 text-white font-semibold rounded-full hover:from-purple-500 hover:via-blue-500 hover:to-cyan-500 transition-all duration-300 shadow-2xl shadow-purple-500/30 border border-purple-400/40 backdrop-blur-sm"
                 >
-                  View Arsenal
+                  View Portfolio
                   <motion.div
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
@@ -197,14 +220,14 @@ const Home = () => {
               >
                 <Link
                   to="/contact"
-                  className="inline-flex items-center px-8 py-4 border-2 border-gradient-to-r from-purple-400 to-cyan-400 text-white font-semibold rounded-full hover:bg-gradient-to-r hover:from-purple-600/20 hover:to-cyan-600/20 transition-all duration-300 backdrop-blur-sm border-purple-400/50"
+                  className="inline-flex items-center px-8 py-4 border-2 border-purple-400/60 text-gray-100 font-semibold rounded-full hover:bg-gradient-to-r hover:from-purple-600/20 hover:to-cyan-600/20 transition-all duration-300 backdrop-blur-sm shadow-lg shadow-purple-500/10"
                 >
-                  Join Alliance
+                  Get In Touch
                 </Link>
               </motion.div>
             </motion.div>
 
-            {/* Power Stats */}
+            {/* Enhanced Stats Section */}
             <motion.div
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -212,39 +235,39 @@ const Home = () => {
               className="mt-16 grid grid-cols-3 gap-6 max-w-md"
             >
               {[
-                { number: "∞", label: "Power Level", color: "from-purple-400 to-blue-500", icon: FiZap },
-                { number: "S+", label: "Rank", color: "from-blue-400 to-cyan-500", icon: Shield },
-                { number: "Elite", label: "Class", color: "from-cyan-400 to-purple-500", icon: Sword }
+                { number: "100%", label: "Dedication", color: "from-purple-300 to-blue-400", icon: FiZap },
+                { number: "A+", label: "Quality", color: "from-blue-300 to-cyan-400", icon: Shield },
+                { number: "Expert", label: "Level", color: "from-cyan-300 to-purple-400", icon: Sword }
               ].map((stat, index) => {
                 const IconComponent = stat.icon;
                 return (
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.1, y: -5 }}
-                    className="text-center p-4 bg-black/30 backdrop-blur-sm rounded-xl border border-purple-500/30 shadow-lg shadow-purple-500/10"
+                    className="text-center p-4 bg-black/60 backdrop-blur-sm rounded-xl border border-purple-400/40 shadow-2xl shadow-purple-500/20"
                   >
                     <motion.div
                       className="flex justify-center mb-2"
                       animate={{ rotate: [0, 360] }}
-                      transition={{ duration: 4, repeat: Infinity, delay: index * 0.3 }}
+                      transition={{ duration: 5, repeat: Infinity, delay: index * 0.4 }}
                     >
-                      <IconComponent className={`text-xl bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`} size={20} />
+                      <IconComponent className={`text-xl bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`} size={22} />
                     </motion.div>
                     <motion.div
-                      className={`text-2xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}
+                      className={`text-2xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent drop-shadow-sm`}
                       animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
+                      transition={{ duration: 2.5, repeat: Infinity, delay: index * 0.3 }}
                     >
                       {stat.number}
                     </motion.div>
-                    <div className="text-sm text-gray-400">{stat.label}</div>
+                    <div className="text-sm text-gray-300">{stat.label}</div>
                   </motion.div>
                 );
               })}
             </motion.div>
           </div>
 
-          {/* Right side - Profile Section */}
+          {/* Right side - Enhanced Profile Section */}
           <motion.div
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -258,87 +281,87 @@ const Home = () => {
             >
               {/* Main Profile Container */}
               <div className="relative w-96 h-96">
-                {/* Mystical Aura Ring */}
+                {/* Enhanced Aura Ring */}
                 <motion.div
-                  className="absolute inset-0 rounded-lg"
+                  className="absolute inset-0 rounded-xl"
                   animate={{
                     boxShadow: [
-                      "0 0 30px rgba(147, 51, 234, 0.4)",
-                      "0 0 60px rgba(59, 130, 246, 0.6)",
-                      "0 0 30px rgba(147, 51, 234, 0.4)"
+                      "0 0 40px rgba(147, 51, 234, 0.6)",
+                      "0 0 80px rgba(59, 130, 246, 0.8)",
+                      "0 0 40px rgba(147, 51, 234, 0.6)"
                     ]
                   }}
-                  transition={{ duration: 3, repeat: Infinity }}
+                  transition={{ duration: 4, repeat: Infinity }}
                 />
                 
-                {/* Power Level Indicator */}
+                {/* Status Indicator */}
                 <motion.div
-                  className="absolute -top-4 -right-4 z-20 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg"
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
+                  className="absolute -top-4 -right-4 z-20 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-2xl shadow-purple-500/50"
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 3, repeat: Infinity }}
                 >
-                  LVL ∞
+                  ACTIVE
                 </motion.div>
 
                 {/* Main Avatar */}
-                <Avatar className="w-full h-full border-4 border-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 shadow-2xl shadow-purple-500/50 rounded-lg">
+                <Avatar className="w-full h-full border-4 border-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 shadow-2xl shadow-purple-500/60 rounded-xl">
                   <AvatarImage 
                     src="/lovable-uploads/8840a6a5-352a-405a-b417-4b44fd7cbbd7.png" 
                     alt="Kare Shirdi Sainath"
-                    className="object-cover aspect-square rounded-lg"
+                    className="object-cover aspect-square rounded-xl"
                   />
-                  <AvatarFallback className="text-4xl bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg">
+                  <AvatarFallback className="text-4xl bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl">
                     KS
                   </AvatarFallback>
                 </Avatar>
 
-                {/* Floating Power Orbs */}
-                {[...Array(4)].map((_, i) => (
+                {/* Enhanced Energy Orbs */}
+                {[...Array(6)].map((_, i) => (
                   <motion.div
                     key={i}
-                    className={`absolute w-4 h-4 rounded-full ${
-                      i % 2 === 0 ? 'bg-purple-500/70' : 'bg-blue-500/70'
-                    } shadow-lg`}
+                    className={`absolute w-5 h-5 rounded-full ${
+                      i % 3 === 0 ? 'bg-purple-400/80' : i % 3 === 1 ? 'bg-blue-400/80' : 'bg-cyan-400/80'
+                    } shadow-2xl blur-sm`}
                     animate={{
-                      x: [0, 20, 0],
-                      y: [0, -20, 0],
-                      scale: [1, 1.2, 1],
-                      opacity: [0.7, 1, 0.7]
+                      x: [0, 25, 0],
+                      y: [0, -25, 0],
+                      scale: [1, 1.4, 1],
+                      opacity: [0.6, 1, 0.6]
                     }}
                     transition={{
-                      duration: 3,
+                      duration: 4,
                       repeat: Infinity,
-                      delay: i * 0.5
+                      delay: i * 0.6
                     }}
                     style={{
-                      top: `${20 + i * 20}%`,
-                      left: i < 2 ? '-8px' : 'calc(100% - 8px)'
+                      top: `${15 + i * 15}%`,
+                      left: i < 3 ? '-12px' : 'calc(100% - 8px)'
                     }}
                   />
                 ))}
 
-                {/* Mystical Runes */}
+                {/* Tech Symbols */}
                 <motion.div
-                  className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2"
+                  className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 1 }}
+                  transition={{ delay: 1.5 }}
                 >
-                  {['◆', '▲', '●', '■'].map((rune, i) => (
+                  {['{ }', '</>', '&&', '||'].map((symbol, i) => (
                     <motion.span
                       key={i}
-                      className="text-purple-400 text-2xl"
+                      className="text-purple-300 text-xl font-mono font-bold drop-shadow-lg"
                       animate={{ 
-                        rotate: [0, 360],
-                        scale: [1, 1.2, 1]
+                        rotate: [0, 10, -10, 0],
+                        scale: [1, 1.3, 1]
                       }}
                       transition={{ 
-                        duration: 4, 
+                        duration: 6, 
                         repeat: Infinity, 
-                        delay: i * 0.5 
+                        delay: i * 0.7 
                       }}
                     >
-                      {rune}
+                      {symbol}
                     </motion.span>
                   ))}
                 </motion.div>

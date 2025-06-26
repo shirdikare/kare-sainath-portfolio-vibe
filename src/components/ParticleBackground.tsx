@@ -40,25 +40,25 @@ const ParticleBackground = () => {
           },
           modes: {
             push: {
-              quantity: 6,
+              quantity: 8,
             },
             attract: {
-              distance: 200,
-              duration: 0.4,
-              factor: 5,
+              distance: 250,
+              duration: 0.6,
+              factor: 8,
             },
           },
         },
         particles: {
           color: {
-            value: ["#9333ea", "#3b82f6", "#06b6d4", "#8b5cf6", "#1e40af"],
+            value: ["#7c3aed", "#2563eb", "#0891b2", "#8b5cf6", "#1e40af", "#6366f1"],
           },
           links: {
-            color: "#9333ea",
-            distance: 120,
+            color: "#7c3aed",
+            distance: 140,
             enable: true,
-            opacity: 0.4,
-            width: 1.5,
+            opacity: 0.3,
+            width: 2,
           },
           move: {
             direction: "none",
@@ -67,33 +67,33 @@ const ParticleBackground = () => {
               default: "bounce",
             },
             random: true,
-            speed: 2,
+            speed: 1.5,
             straight: false,
           },
           number: {
             density: {
               enable: true,
-              area: 800,
+              area: 1000,
             },
-            value: 80,
+            value: 100,
           },
           opacity: {
-            value: { min: 0.2, max: 0.9 },
+            value: { min: 0.1, max: 0.7 },
             animation: {
               enable: true,
-              speed: 1.5,
-              minimumValue: 0.1,
+              speed: 2,
+              minimumValue: 0.05,
             },
           },
           shape: {
             type: ["circle", "triangle", "star", "polygon"],
           },
           size: {
-            value: { min: 1, max: 5 },
+            value: { min: 1, max: 6 },
             animation: {
               enable: true,
-              speed: 3,
-              minimumValue: 0.5,
+              speed: 4,
+              minimumValue: 0.3,
             },
           },
         },
