@@ -1,20 +1,18 @@
-
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { FiMenu, FiX, FiHome, FiUser, FiFolder, FiFileText, FiMail, FiImage } from "react-icons/fi";
+import { FiMenu, FiX, FiHome, FiUser, FiFolder, FiFileText, FiMail } from "react-icons/fi";
 
 const Navigation = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { path: "/", label: "Shadow Realm", icon: FiHome },
-    { path: "/about", label: "Hunter Profile", icon: FiUser },
-    { path: "/projects", label: "Arsenal", icon: FiFolder },
-    { path: "/gallery", label: "Memories", icon: FiImage },
-    { path: "/resume", label: "Status", icon: FiFileText },
-    { path: "/contact", label: "Guild Contact", icon: FiMail },
+    { path: "/", label: "Home", icon: FiHome },
+    { path: "/about", label: "About", icon: FiUser },
+    { path: "/projects", label: "Projects", icon: FiFolder },
+    { path: "/resume", label: "Resume", icon: FiFileText },
+    { path: "/contact", label: "Contact", icon: FiMail },
   ];
 
   return (

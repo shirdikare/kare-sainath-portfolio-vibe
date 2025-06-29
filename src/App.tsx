@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,7 +9,6 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
-import Gallery from "./pages/Gallery";
 import NotFound from "./pages/NotFound";
 import Navigation from "./components/Navigation";
 import ParticleBackground from "./components/ParticleBackground";
@@ -28,7 +26,6 @@ const AnimatedRoutes = () => {
         <Route path="/projects" element={<Projects />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/gallery" element={<Gallery />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
