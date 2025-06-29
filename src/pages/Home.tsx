@@ -224,14 +224,14 @@ const Home = () => {
             initial={{ x: 30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="flex justify-center lg:justify-end"
+            className="flex justify-center lg:justify-center"
           >
             <motion.div
               whileHover={{ scale: 1.01 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="relative"
+              className="relative flex justify-center items-center"
             >
-              <div className="relative w-96 h-96">
+              <div className="relative w-96 h-96 flex justify-center items-center">
                 <motion.div
                   className="absolute inset-0 rounded-xl"
                   animate={{
@@ -254,9 +254,9 @@ const Home = () => {
 
                 <Avatar className="w-full h-full border-4 border-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 shadow-2xl rounded-xl">
                   <AvatarImage 
-                    src="/lovable-uploads/8840a6a5-352a-405a-b417-4b44fd7cbbd7.png" 
+                    src="/lovable-uploads/99d406a9-7947-40f2-8db8-198c5d094173.png" 
                     alt="Kare Shirdi Sainath"
-                    className="object-cover aspect-square rounded-xl"
+                    className="object-cover object-center aspect-square rounded-xl"
                   />
                   <AvatarFallback className="text-4xl bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl">
                     KS

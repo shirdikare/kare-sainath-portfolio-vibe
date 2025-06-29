@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { FiCamera, FiMapPin, FiEdit3 } from "react-icons/fi";
 import { GraduationCap } from "lucide-react";
+import { Avatar, AvatarImage, AvatarFallback } from "../components/ui/avatar";
 
 const About = () => {
   const educationData = [
@@ -49,12 +50,51 @@ const About = () => {
           About Me
         </motion.h1>
 
+        {/* Profile Image Section */}
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="flex justify-center mb-12"
+        >
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="relative"
+          >
+            <div className="relative w-64 h-64 flex justify-center items-center">
+              <motion.div
+                className="absolute inset-0 rounded-xl"
+                animate={{
+                  boxShadow: [
+                    "0 0 20px rgba(239, 68, 68, 0.4)",
+                    "0 0 40px rgba(239, 68, 68, 0.6)",
+                    "0 0 20px rgba(239, 68, 68, 0.4)"
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              />
+              
+              <Avatar className="w-full h-full border-4 border-gradient-to-r from-red-400 via-red-500 to-red-600 shadow-2xl rounded-xl">
+                <AvatarImage 
+                  src="/lovable-uploads/99d406a9-7947-40f2-8db8-198c5d094173.png" 
+                  alt="Kare Shirdi Sainath"
+                  className="object-cover object-center aspect-square rounded-xl"
+                />
+                <AvatarFallback className="text-4xl bg-gradient-to-r from-red-600 to-red-800 text-white rounded-xl">
+                  KS
+                </AvatarFallback>
+              </Avatar>
+            </div>
+          </motion.div>
+        </motion.div>
+
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Personal Info */}
           <motion.div
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
             className="space-y-6"
           >
             <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 border border-red-500/20">
@@ -75,7 +115,7 @@ const About = () => {
                     key={hobby.name}
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
+                    transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
                     className="flex items-center space-x-2 bg-red-900/20 rounded-lg p-3 border border-red-500/20"
                   >
                     <hobby.icon className="text-red-400" />
@@ -90,7 +130,7 @@ const About = () => {
           <motion.div
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
             className="space-y-6"
           >
             <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 border border-red-500/20">
@@ -105,7 +145,7 @@ const About = () => {
                     key={index}
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.6 + index * 0.2, duration: 0.6 }}
+                    transition={{ delay: 0.8 + index * 0.2, duration: 0.6 }}
                     className="bg-gradient-to-r from-red-500/10 to-black/20 rounded-xl p-6 border border-red-500/20"
                   >
                     <div className="flex items-start space-x-4">
@@ -129,7 +169,7 @@ const About = () => {
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
+          transition={{ delay: 1, duration: 0.8 }}
           className="mt-12"
         >
           <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 border border-red-500/20">
@@ -142,7 +182,7 @@ const About = () => {
                   key={skill}
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  transition={{ delay: 1 + index * 0.1, duration: 0.3 }}
+                  transition={{ delay: 1.2 + index * 0.1, duration: 0.3 }}
                   className="bg-gradient-to-r from-red-500/20 to-black/20 rounded-lg p-3 text-center border border-red-500/20"
                 >
                   <span className="text-sm font-medium">{skill}</span>
