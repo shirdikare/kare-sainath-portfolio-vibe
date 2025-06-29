@@ -1,3 +1,4 @@
+
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -16,7 +17,7 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-md border-b border-purple-500/30">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-md border-b border-purple-500/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <Link to="/" className="text-2xl font-bold">
@@ -24,7 +25,7 @@ const Navigation = () => {
               className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent"
               whileHover={{ scale: 1.05 }}
             >
-              Shadow Monarch
+              Kare Shirdi Sainath
             </motion.span>
           </Link>
 

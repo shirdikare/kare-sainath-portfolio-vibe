@@ -50,12 +50,12 @@ const Home = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen flex items-center justify-center relative z-10 pt-20"
     >
-      {/* Simplified Background Effects */}
+      {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-98"></div>
         <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/20 via-black/90 to-blue-900/20"></div>
         
-        {/* Reduced Floating Icons */}
+        {/* Floating Icons */}
         {floatingIcons.map((item, index) => {
           const IconComponent = item.icon;
           return (
@@ -81,7 +81,7 @@ const Home = () => {
           );
         })}
 
-        {/* Simplified Energy Orbs */}
+        {/* Energy Orbs */}
         {[...Array(3)].map((_, i) => (
           <motion.div
             key={i}
@@ -120,7 +120,7 @@ const Home = () => {
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="flex items-center mb-4 text-lg text-gray-100"
+              className="flex items-center mb-4 text-lg text-white"
             >
               <FiMapPin className="mr-2 text-purple-400" />
               <span>Based in Sileru, Visakhapatnam</span>
@@ -130,7 +130,7 @@ const Home = () => {
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-2xl md:text-3xl font-medium mb-8 text-gray-100 h-12 flex items-center"
+              className="text-2xl md:text-3xl font-medium mb-8 text-white h-12 flex items-center"
             >
               <span className="bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent font-bold">
                 {typedText}
@@ -148,9 +148,9 @@ const Home = () => {
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="text-lg md:text-xl text-gray-100 mb-12 leading-relaxed"
+              className="text-lg md:text-xl text-white mb-12 leading-relaxed"
             >
-              Crafting exceptional digital experiences through innovative technology solutions. 
+              Creating exceptional digital experiences through innovative technology solutions. 
               Specializing in modern web development with expertise in cutting-edge frameworks and AI integration.
               Currently pursuing B.Tech in Computer Science with AI specialization.
             </motion.p>
@@ -180,14 +180,14 @@ const Home = () => {
               >
                 <Link
                   to="/contact"
-                  className="inline-flex items-center px-8 py-4 border-2 border-purple-400/60 text-gray-100 font-semibold rounded-full hover:bg-purple-600/20 transition-all duration-300 backdrop-blur-sm"
+                  className="inline-flex items-center px-8 py-4 border-2 border-purple-400/60 text-white font-semibold rounded-full hover:bg-purple-600/20 transition-all duration-300 backdrop-blur-sm"
                 >
                   Get In Touch
                 </Link>
               </motion.div>
             </motion.div>
 
-            {/* Simplified Stats Section */}
+            {/* Stats Section */}
             <motion.div
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -219,7 +219,7 @@ const Home = () => {
             </motion.div>
           </div>
 
-          {/* Right side - Simplified Profile Section */}
+          {/* Right side - Profile Section */}
           <motion.div
             initial={{ x: 30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -249,7 +249,7 @@ const Home = () => {
                   animate={{ y: [0, -5, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  ACTIVE
+                  AVAILABLE
                 </motion.div>
 
                 <Avatar className="w-full h-full border-4 border-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 shadow-2xl rounded-xl">
@@ -263,7 +263,7 @@ const Home = () => {
                   </AvatarFallback>
                 </Avatar>
 
-                {/* Simplified Energy Orbs */}
+                {/* Floating Elements */}
                 {[...Array(4)].map((_, i) => (
                   <motion.div
                     key={i}
