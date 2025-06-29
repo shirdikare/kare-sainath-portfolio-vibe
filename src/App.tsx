@@ -41,9 +41,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/20 via-black/60 to-blue-900/20"></div>
-          <div className="absolute inset-0 bg-black/40"></div>
+        <div className="min-h-screen bg-black text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
           <ParticleBackground />
           <Navigation />
           <AnimatedRoutes />

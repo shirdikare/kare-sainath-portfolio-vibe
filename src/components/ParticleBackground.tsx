@@ -10,7 +10,7 @@ const ParticleBackground = () => {
   }, []);
 
   const particlesLoaded = useCallback(async (container: Container | undefined) => {
-    console.log("Shadow particles awakened", container);
+    console.log("Particles loaded", container);
   }, []);
 
   return (
@@ -25,7 +25,7 @@ const ParticleBackground = () => {
             value: "transparent",
           },
         },
-        fpsLimit: 120,
+        fpsLimit: 60,
         interactivity: {
           events: {
             onClick: {
@@ -40,25 +40,25 @@ const ParticleBackground = () => {
           },
           modes: {
             push: {
-              quantity: 8,
+              quantity: 2,
             },
             attract: {
-              distance: 250,
-              duration: 0.6,
-              factor: 8,
+              distance: 150,
+              duration: 0.4,
+              factor: 4,
             },
           },
         },
         particles: {
           color: {
-            value: ["#7c3aed", "#2563eb", "#0891b2", "#8b5cf6", "#1e40af", "#6366f1"],
+            value: ["#7c3aed", "#2563eb", "#8b5cf6"],
           },
           links: {
             color: "#7c3aed",
-            distance: 140,
+            distance: 120,
             enable: true,
-            opacity: 0.3,
-            width: 2,
+            opacity: 0.2,
+            width: 1,
           },
           move: {
             direction: "none",
@@ -66,33 +66,33 @@ const ParticleBackground = () => {
             outModes: {
               default: "bounce",
             },
-            random: true,
-            speed: 1.5,
+            random: false,
+            speed: 0.8,
             straight: false,
           },
           number: {
             density: {
               enable: true,
-              area: 1000,
+              area: 1200,
             },
-            value: 100,
+            value: 40,
           },
           opacity: {
-            value: { min: 0.1, max: 0.7 },
+            value: { min: 0.1, max: 0.5 },
             animation: {
               enable: true,
-              speed: 2,
+              speed: 1,
               minimumValue: 0.05,
             },
           },
           shape: {
-            type: ["circle", "triangle", "star", "polygon"],
+            type: "circle",
           },
           size: {
-            value: { min: 1, max: 6 },
+            value: { min: 1, max: 3 },
             animation: {
               enable: true,
-              speed: 4,
+              speed: 2,
               minimumValue: 0.3,
             },
           },

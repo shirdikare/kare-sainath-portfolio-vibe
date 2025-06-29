@@ -1,8 +1,8 @@
 
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FiArrowRight, FiMapPin, FiCode, FiGitBranch, FiZap } from "react-icons/fi";
-import { Sword, Shield, Target, Zap } from "lucide-react";
+import { FiArrowRight, FiMapPin, FiCode, FiZap } from "react-icons/fi";
+import { Sword, Shield, Target } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "../components/ui/avatar";
 import { useState, useEffect } from "react";
 
@@ -36,10 +36,10 @@ const Home = () => {
   }, [currentIndex]);
 
   const floatingIcons = [
-    { icon: Sword, color: "text-purple-300", delay: 0 },
-    { icon: Shield, color: "text-blue-300", delay: 0.5 },
-    { icon: Target, color: "text-red-300", delay: 1 },
-    { icon: FiCode, color: "text-cyan-300", delay: 1.5 }
+    { icon: Sword, color: "text-purple-400", delay: 0 },
+    { icon: Shield, color: "text-blue-400", delay: 1 },
+    { icon: Target, color: "text-red-400", delay: 2 },
+    { icon: FiCode, color: "text-cyan-400", delay: 3 }
   ];
 
   return (
@@ -50,79 +50,54 @@ const Home = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen flex items-center justify-center relative z-10 pt-20"
     >
-      {/* Enhanced Dark Background Effects */}
+      {/* Simplified Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Deep Shadow Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-95"></div>
-        <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/30 via-black/80 to-blue-900/30"></div>
+        <div className="absolute inset-0 bg-black opacity-98"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/20 via-black/90 to-blue-900/20"></div>
         
-        {/* Floating Technical Icons */}
+        {/* Reduced Floating Icons */}
         {floatingIcons.map((item, index) => {
           const IconComponent = item.icon;
           return (
             <motion.div
               key={index}
-              className={`absolute ${item.color} opacity-15`}
+              className={`absolute ${item.color} opacity-10`}
               animate={{
-                y: [0, -40, 0],
-                x: [0, 20, 0],
-                rotate: [0, 360],
-                scale: [1, 1.3, 1]
+                y: [0, -20, 0],
+                rotate: [0, 180],
               }}
               transition={{
-                duration: 12,
+                duration: 8,
                 repeat: Infinity,
                 delay: item.delay
               }}
               style={{
-                left: `${8 + index * 22}%`,
-                top: `${15 + index * 18}%`
+                left: `${10 + index * 20}%`,
+                top: `${20 + index * 15}%`
               }}
             >
-              <IconComponent size={100} />
+              <IconComponent size={60} />
             </motion.div>
           );
         })}
 
-        {/* Enhanced Energy Orbs */}
-        {[...Array(8)].map((_, i) => (
+        {/* Simplified Energy Orbs */}
+        {[...Array(3)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-3 h-3 bg-purple-400/40 rounded-full shadow-lg shadow-purple-400/20"
+            className="absolute w-2 h-2 bg-purple-400/30 rounded-full"
             animate={{
-              y: [0, -120, 0],
-              opacity: [0, 0.8, 0],
-              scale: [0, 1.5, 0]
+              y: [0, -80, 0],
+              opacity: [0, 0.6, 0],
             }}
             transition={{
-              duration: 5,
+              duration: 4,
               repeat: Infinity,
-              delay: i * 1
+              delay: i * 2
             }}
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`
-            }}
-          />
-        ))}
-
-        {/* Vertical Energy Streaks */}
-        {[...Array(4)].map((_, i) => (
-          <motion.div
-            key={`streak-${i}`}
-            className="absolute w-px h-32 bg-gradient-to-b from-transparent via-purple-400/30 to-transparent"
-            animate={{
-              y: ['-100%', '200%'],
-              opacity: [0, 0.6, 0]
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              delay: i * 0.8
-            }}
-            style={{
-              left: `${20 + i * 25}%`,
-              top: 0
             }}
           />
         ))}
@@ -133,46 +108,36 @@ const Home = () => {
           {/* Left side - Hero Content */}
           <div className="text-left">
             <motion.h1
-              initial={{ y: 50, opacity: 0 }}
+              initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 bg-clip-text text-transparent relative drop-shadow-2xl"
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent drop-shadow-2xl"
             >
               Kare Shirdi Sainath
-              <motion.div
-                className="absolute -top-3 -right-3 w-10 h-10 bg-purple-400/20 rounded-full blur-xl"
-                animate={{ scale: [1, 1.8, 1], opacity: [0.2, 0.6, 0.2] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              />
             </motion.h1>
 
             <motion.div
-              initial={{ y: 50, opacity: 0 }}
+              initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="flex items-center mb-4 text-lg text-gray-200"
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="flex items-center mb-4 text-lg text-gray-100"
             >
-              <motion.div
-                animate={{ scale: [1, 1.4, 1] }}
-                transition={{ duration: 2.5, repeat: Infinity }}
-              >
-                <FiMapPin className="mr-2 text-purple-300" />
-              </motion.div>
+              <FiMapPin className="mr-2 text-purple-400" />
               <span>Based in Sileru, Visakhapatnam</span>
             </motion.div>
 
             <motion.div
-              initial={{ y: 50, opacity: 0 }}
+              initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
               className="text-2xl md:text-3xl font-medium mb-8 text-gray-100 h-12 flex items-center"
             >
-              <span className="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 bg-clip-text text-transparent font-bold drop-shadow-lg">
+              <span className="bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent font-bold">
                 {typedText}
                 <motion.span
                   animate={{ opacity: [1, 0] }}
                   transition={{ duration: 0.8, repeat: Infinity }}
-                  className="text-purple-300"
+                  className="text-purple-400"
                 >
                   |
                 </motion.span>
@@ -180,10 +145,10 @@ const Home = () => {
             </motion.div>
 
             <motion.p
-              initial={{ y: 50, opacity: 0 }}
+              initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.8 }}
-              className="text-lg md:text-xl text-gray-200 mb-12 leading-relaxed drop-shadow-sm"
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="text-lg md:text-xl text-gray-100 mb-12 leading-relaxed"
             >
               Crafting exceptional digital experiences through innovative technology solutions. 
               Specializing in modern web development with expertise in cutting-edge frameworks and AI integration.
@@ -191,47 +156,42 @@ const Home = () => {
             </motion.p>
 
             <motion.div
-              initial={{ y: 50, opacity: 0 }}
+              initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 1, duration: 0.8 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
               className="flex flex-col sm:flex-row gap-4"
             >
               <motion.div
-                whileHover={{ scale: 1.05, y: -3 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <Link
                   to="/projects"
-                  className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 text-white font-semibold rounded-full hover:from-purple-500 hover:via-blue-500 hover:to-cyan-500 transition-all duration-300 shadow-2xl shadow-purple-500/30 border border-purple-400/40 backdrop-blur-sm"
+                  className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 text-white font-semibold rounded-full hover:from-purple-500 hover:via-blue-500 hover:to-cyan-500 transition-all duration-300 shadow-xl"
                 >
                   View Portfolio
-                  <motion.div
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    <Sword className="ml-2" size={20} />
-                  </motion.div>
+                  <FiArrowRight className="ml-2" size={20} />
                 </Link>
               </motion.div>
               
               <motion.div
-                whileHover={{ scale: 1.05, y: -3 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <Link
                   to="/contact"
-                  className="inline-flex items-center px-8 py-4 border-2 border-purple-400/60 text-gray-100 font-semibold rounded-full hover:bg-gradient-to-r hover:from-purple-600/20 hover:to-cyan-600/20 transition-all duration-300 backdrop-blur-sm shadow-lg shadow-purple-500/10"
+                  className="inline-flex items-center px-8 py-4 border-2 border-purple-400/60 text-gray-100 font-semibold rounded-full hover:bg-purple-600/20 transition-all duration-300 backdrop-blur-sm"
                 >
                   Get In Touch
                 </Link>
               </motion.div>
             </motion.div>
 
-            {/* Enhanced Stats Section */}
+            {/* Simplified Stats Section */}
             <motion.div
-              initial={{ y: 50, opacity: 0 }}
+              initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 1.2, duration: 0.8 }}
+              transition={{ delay: 0.7, duration: 0.6 }}
               className="mt-16 grid grid-cols-3 gap-6 max-w-md"
             >
               {[
@@ -243,23 +203,15 @@ const Home = () => {
                 return (
                   <motion.div
                     key={index}
-                    whileHover={{ scale: 1.1, y: -5 }}
-                    className="text-center p-4 bg-black/60 backdrop-blur-sm rounded-xl border border-purple-400/40 shadow-2xl shadow-purple-500/20"
+                    whileHover={{ scale: 1.05 }}
+                    className="text-center p-4 bg-black/80 backdrop-blur-sm rounded-xl border border-purple-400/30 shadow-xl"
                   >
-                    <motion.div
-                      className="flex justify-center mb-2"
-                      animate={{ rotate: [0, 360] }}
-                      transition={{ duration: 5, repeat: Infinity, delay: index * 0.4 }}
-                    >
+                    <div className="flex justify-center mb-2">
                       <IconComponent className={`text-xl bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`} size={22} />
-                    </motion.div>
-                    <motion.div
-                      className={`text-2xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent drop-shadow-sm`}
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 2.5, repeat: Infinity, delay: index * 0.3 }}
-                    >
+                    </div>
+                    <div className={`text-2xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>
                       {stat.number}
-                    </motion.div>
+                    </div>
                     <div className="text-sm text-gray-300">{stat.label}</div>
                   </motion.div>
                 );
@@ -267,44 +219,40 @@ const Home = () => {
             </motion.div>
           </div>
 
-          {/* Right side - Enhanced Profile Section */}
+          {/* Right side - Simplified Profile Section */}
           <motion.div
-            initial={{ x: 50, opacity: 0 }}
+            initial={{ x: 30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
             className="flex justify-center lg:justify-end"
           >
             <motion.div
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.01 }}
               transition={{ type: "spring", stiffness: 300 }}
               className="relative"
             >
-              {/* Main Profile Container */}
               <div className="relative w-96 h-96">
-                {/* Enhanced Aura Ring */}
                 <motion.div
                   className="absolute inset-0 rounded-xl"
                   animate={{
                     boxShadow: [
-                      "0 0 40px rgba(147, 51, 234, 0.6)",
-                      "0 0 80px rgba(59, 130, 246, 0.8)",
-                      "0 0 40px rgba(147, 51, 234, 0.6)"
+                      "0 0 30px rgba(147, 51, 234, 0.4)",
+                      "0 0 50px rgba(59, 130, 246, 0.6)",
+                      "0 0 30px rgba(147, 51, 234, 0.4)"
                     ]
                   }}
-                  transition={{ duration: 4, repeat: Infinity }}
+                  transition={{ duration: 3, repeat: Infinity }}
                 />
                 
-                {/* Status Indicator */}
                 <motion.div
-                  className="absolute -top-4 -right-4 z-20 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-2xl shadow-purple-500/50"
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 3, repeat: Infinity }}
+                  className="absolute -top-4 -right-4 z-20 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-xl"
+                  animate={{ y: [0, -5, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
                 >
                   ACTIVE
                 </motion.div>
 
-                {/* Main Avatar */}
-                <Avatar className="w-full h-full border-4 border-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 shadow-2xl shadow-purple-500/60 rounded-xl">
+                <Avatar className="w-full h-full border-4 border-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 shadow-2xl rounded-xl">
                   <AvatarImage 
                     src="/lovable-uploads/8840a6a5-352a-405a-b417-4b44fd7cbbd7.png" 
                     alt="Kare Shirdi Sainath"
@@ -315,50 +263,47 @@ const Home = () => {
                   </AvatarFallback>
                 </Avatar>
 
-                {/* Enhanced Energy Orbs */}
-                {[...Array(6)].map((_, i) => (
+                {/* Simplified Energy Orbs */}
+                {[...Array(4)].map((_, i) => (
                   <motion.div
                     key={i}
-                    className={`absolute w-5 h-5 rounded-full ${
-                      i % 3 === 0 ? 'bg-purple-400/80' : i % 3 === 1 ? 'bg-blue-400/80' : 'bg-cyan-400/80'
-                    } shadow-2xl blur-sm`}
+                    className={`absolute w-3 h-3 rounded-full ${
+                      i % 2 === 0 ? 'bg-purple-400/60' : 'bg-blue-400/60'
+                    } shadow-lg`}
                     animate={{
-                      x: [0, 25, 0],
-                      y: [0, -25, 0],
-                      scale: [1, 1.4, 1],
-                      opacity: [0.6, 1, 0.6]
+                      x: [0, 15, 0],
+                      y: [0, -15, 0],
+                      opacity: [0.4, 0.8, 0.4]
                     }}
                     transition={{
-                      duration: 4,
+                      duration: 3,
                       repeat: Infinity,
-                      delay: i * 0.6
+                      delay: i * 0.8
                     }}
                     style={{
-                      top: `${15 + i * 15}%`,
-                      left: i < 3 ? '-12px' : 'calc(100% - 8px)'
+                      top: `${20 + i * 20}%`,
+                      left: i < 2 ? '-8px' : 'calc(100% - 4px)'
                     }}
                   />
                 ))}
 
-                {/* Tech Symbols */}
                 <motion.div
-                  className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3"
+                  className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 1.5 }}
+                  transition={{ delay: 1 }}
                 >
-                  {['{ }', '</>', '&&', '||'].map((symbol, i) => (
+                  {['{ }', '</>', '&&'].map((symbol, i) => (
                     <motion.span
                       key={i}
-                      className="text-purple-300 text-xl font-mono font-bold drop-shadow-lg"
+                      className="text-purple-300 text-lg font-mono font-bold"
                       animate={{ 
-                        rotate: [0, 10, -10, 0],
-                        scale: [1, 1.3, 1]
+                        scale: [1, 1.1, 1]
                       }}
                       transition={{ 
-                        duration: 6, 
+                        duration: 4, 
                         repeat: Infinity, 
-                        delay: i * 0.7 
+                        delay: i * 0.5 
                       }}
                     >
                       {symbol}
